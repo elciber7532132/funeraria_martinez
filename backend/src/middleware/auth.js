@@ -1,0 +1,2 @@
+const jwt=require('jsonwebtoken');
+module.exports=(roles=[])=> (req,res,next)=>{ try{ const h=req.headers.authorization||''; const token=h.startsWith('Bearer ')?h.slice(7):null; if(!token) return res.status(401).json({message:'Token requerido'}); const user=jwt.verify(token,process.env.JWT_SECRET); if(roles.length&&!roles.includes(user.rol)) return res.status(403).json({message:'Sin permisos'}); req.user=user; next(); }catch(e){res.status(401).json({message:'Sesión inválida'})} };

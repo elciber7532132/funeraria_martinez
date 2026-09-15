@@ -1,0 +1,3 @@
+-- Base limpia: no se cargan vehículos, conductores ni abastecimientos.
+-- El usuario administrador se crea automáticamente al iniciar el backend.
+-- Puedes importar vehículos, conductores y abastecimientos desde Excel desde el sistema.
